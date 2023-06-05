@@ -131,9 +131,10 @@ void delete_by_index(struct vector *vector, int index) {
 }
 
 void delete_by_value(struct vector *vector, int value) {
-  for (int i = 0; i < vector->size; i++) {
-    if (get(vector, i) == value) {
-      delete_by_index(vector, i);
-    }
-  }
+  while (1) {
+    int index = find(vector, value);
+
+    if (index != -1) delete_by_index(vector, index);
+    else break;
+  };
 }

@@ -169,15 +169,15 @@ void should_delete_an_element_by_index() {
 void should_remove_an_element() {
   struct vector vector = create_vector();
 
+  push(&vector, 2);
   push(&vector, 1);
   push(&vector, 2);
-  push(&vector, 3);
   push(&vector, 2);
 
   delete_by_value(&vector, 2);
 
   CU_ASSERT_EQUAL(get(&vector, 0), 1);
-  CU_ASSERT_EQUAL(get(&vector, 1), 3);
+  CU_ASSERT_EQUAL(vector.size, 1);
 }
 
 int init_suite(void) {
