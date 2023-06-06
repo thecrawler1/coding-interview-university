@@ -4,25 +4,25 @@
 #include "vector.h"
 
 void should_create_vector() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   CU_ASSERT_EQUAL(vector.size, 0);
 }
 
 void should_create_vector_with_capacity_16() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   CU_ASSERT_EQUAL(vector.capacity, 16);
 }
 
 void should_initialize_empty() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   CU_ASSERT_TRUE(is_empty(&vector));
 }
 
 void should_push_element() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
   
   push(&vector, 42);
 
@@ -30,14 +30,14 @@ void should_push_element() {
   CU_ASSERT_FALSE(is_empty(&vector));
 }
 
-void _insert_n_elements(struct vector *vector, int n) {
+void _insert_n_elements(vector *vector, int n) {
   for (int i = 0; i < n; i++) {
     push(vector, 42);
   }
 }
 
 void should_increase_capacity_when_needed() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
   
   _insert_n_elements(&vector, DEFAULT_CAPACITY + 1);
 
@@ -45,7 +45,7 @@ void should_increase_capacity_when_needed() {
 }
 
 void should_get_element() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
   
   push(&vector, 42);
   push(&vector, 82);
@@ -55,7 +55,7 @@ void should_get_element() {
 }
 
 void should_pop_element() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   push(&vector, 42);
 
@@ -64,7 +64,7 @@ void should_pop_element() {
 }
 
 void should_resize_when_pop_and_size_is_one_quarter_of_capacity() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   _insert_n_elements(&vector, 17);
 
@@ -78,7 +78,7 @@ void should_resize_when_pop_and_size_is_one_quarter_of_capacity() {
 }
 
 void should_find_element() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   push(&vector, 1);
   push(&vector, 2);
@@ -90,7 +90,7 @@ void should_find_element() {
 }
 
 void should_not_find_element() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   push(&vector, 1);
   push(&vector, 2);
@@ -102,7 +102,7 @@ void should_not_find_element() {
 }
 
 void should_insert_an_element_in_the_middle() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   push(&vector, 1);
   push(&vector, 2);
@@ -119,7 +119,7 @@ void should_insert_an_element_in_the_middle() {
 }
 
 void should_prepend_an_element() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   push(&vector, 1);
   push(&vector, 2);
@@ -136,7 +136,7 @@ void should_prepend_an_element() {
 }
 
 void should_update_an_element() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   push(&vector, 1);
   push(&vector, 2);
@@ -152,7 +152,7 @@ void should_update_an_element() {
 }
 
 void should_delete_an_element_by_index() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   push(&vector, 1);
   push(&vector, 2);
@@ -167,7 +167,7 @@ void should_delete_an_element_by_index() {
 }
 
 void should_remove_an_element() {
-  struct vector vector = create_vector();
+  vector vector = create_vector();
 
   push(&vector, 2);
   push(&vector, 1);
